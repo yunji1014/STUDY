@@ -1,0 +1,26 @@
+VPC 빌드하기 및 웹 서버 시작(5챕)
+vpc생성
+Number of Availability Zones에서는 1을 선택합니다.
+Number of public subnets에서는 1 설정 그대로 둡니다.
+Number of private subnets에서는 1 설정 그대로 둡니다.
+Customize subnets CIDR blocks 섹션을 펼칩니다.
+Public subnet CIDR block in us-east-1a를 10.0.0.0/24로 변경합니다.
+Private subnet CIDR block in us-east-1a를 10.0.1.0/24로 변경합니다.
+NAT gateways를 In 1 AZ로 변경합니다.
+VPC endpoints를 None으로 설정합니다.
+DNS hostnames와 DNS resolution은 모두 enabled 상태로 둡니다.
+
+서브넷 생성 2개 
+lab-subnet-public/private2
+10.0.2.0/24 10.0.3.0/24
+
+라우팅 테이블 선택
+lab-rtb-private1-us-east-1a선택 -> 서브넷 연결 -> 서브넷연결편집 (public도 해주기)
+
+vpc보안그룹 생성
+보안그룹 -> 보안그룹 생성 -> 인바운드 규칙 생성
+
+ec2인스턴스 실행
+네트워크구성 -> edit -> public2 -> Auto-assign public IP: Enable -> 기존보안그룹
+
+ Public IPv4 DNS값 복사 후 열리는지 확인
